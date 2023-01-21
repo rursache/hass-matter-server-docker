@@ -33,7 +33,7 @@ RUN \
     && rm -rf /usr/src/*
 
 # get the code from python-matter-server
-RUN git clone https://github.com/home-assistant-libs/python-matter-server.git .
+RUN git init . && git remote add origin https://github.com/home-assistant-libs/python-matter-server.git && git pull origin main
 
 COPY . ./
 
