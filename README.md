@@ -1,7 +1,7 @@
 # Home Assistent Matter Server Docker Image
 Docker image for Home Assistant [python-matter-server](https://github.com/home-assistant-libs/python-matter-server)
 
-## Docker run example
+## Docker run:
 ```sh
 docker run -d \
   --name matter-server \
