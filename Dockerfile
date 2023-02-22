@@ -22,6 +22,7 @@ RUN \
     unzip \
     libcairo2 \
     gdb \
+    curl \
     git \
     && git clone --depth 1 -b master \
     https://github.com/project-chip/connectedhomeip \
@@ -31,6 +32,10 @@ RUN \
     && rm -rf connectedhomeip \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /usr/src/*
+
+# install rustc
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -q -y
+RUN source $HOME/.cargo/env
 
 # get the code from python-matter-server
 RUN git init . && git remote add origin https://github.com/home-assistant-libs/python-matter-server.git && git pull origin main
