@@ -16,6 +16,9 @@ RUN \
         unzip \
         libcairo2 \
         gdb \
+        gcc \
+        linux-libc-dev \
+        libc6-dev \
         git \
     && git clone --depth 1 -b master \
         https://github.com/project-chip/connectedhomeip \
