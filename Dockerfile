@@ -1,4 +1,4 @@
-FROM python:3.10-slim-bullseye
+FROM python:3.11-slim-bullseye
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -13,19 +13,13 @@ RUN \
         openssl \
         zlib1g \
         libjson-c5 \
+        libnl-3-200 \
+        libnl-route-3-200 \
         unzip \
         libcairo2 \
         gdb \
-        gcc \
-        linux-libc-dev \
-        libc6-dev \
         git \
-    && git clone --depth 1 -b master \
-        https://github.com/project-chip/connectedhomeip \
-    && cp -r connectedhomeip/credentials /app/credentials \
-    && mv /app/credentials/production/paa-root-certs/* \
-          /app/credentials/development/paa-root-certs/ \
-    && rm -rf connectedhomeip \
+    && apt-get purge -y --auto-remove \
     && rm -rf \
         /var/lib/apt/lists/* \
         /usr/src/*
